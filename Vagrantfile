@@ -4,19 +4,19 @@
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = "2"
 
-Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "mast3rof0/lubuntu32"
+BOX_32BITS = "mast3rof0/lubuntu32"
+BOX_64BITS = "mast3rof0/lubuntu64"
 
-  # Provider-specific configuration so you can fine-tune various
-  # backing providers for Vagrant. These expose provider-specific options.
-  # Example for VirtualBox:
-  #
+# Set the BOX (32 OR 64 BITS) you'd like to use
+WHICH_BOX = BOX_32BITS
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  config.vm.box = WHICH_BOX
+
   config.vm.provider "virtualbox" do |vb|
     # Don't boot with headless mode
     vb.gui = true
 
-    # Use VBoxManage to customize the VM. For example to change memory:
     vb.customize ["modifyvm", :id, "--memory", "1024"]
   end
 
