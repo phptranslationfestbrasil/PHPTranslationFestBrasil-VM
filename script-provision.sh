@@ -56,17 +56,29 @@ sudo sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="agnoster"/' /home/vagrant/.zs
 sudo sed -i 's=:/bin:=:/bin:/sbin:/usr/sbin:=' /home/vagrant/.zshrc
 chsh vagrant -s $(which zsh);
 
-echo "*****************************"
-echo "Installing other dependencies"
-echo "*****************************"
+echo "*********************"
+echo "Installing subversion"
+echo "*********************"
 
-sudo apt-get -y install git subversion php5-cli php-pear sublime-text-installer php5-sqlite
+sudo apt-get -y install subversion
 
-echo "**************"
-echo "Installing PHD"
-echo "**************"
+echo "****************************"
+echo "Installing php5 dev packages"
+echo "****************************"
 
-cd ~
+sudo apt-get -y install php5-dev php-pear
+
+echo "***********************"
+echo "Installing dependencies"
+echo "***********************"
+
+sudo add-apt-repository ppa:webupd8team/sublime-text-3
+sudo apt-get update
+sudo apt-get install git subversion php5-cli php-pear sublime-text-installer php5-sqlite
+
+mkdir ~/translation_fest
+cd ~/translation_fest
+
 git clone https://git.php.net/repository/phd.git
 cd phd
 sudo pear install package.xml package_generic.xml package_php.xml
@@ -103,12 +115,13 @@ then
     exit 2
 fi
 
-echo "*****************************"
-echo "Checkout repository doc-pt_BR"
-echo "*****************************"
+echo "********************"
+echo "Checkout repository "
+echo "********************"
 
-cd ~
-svn co https://svn.php.net/repository/phpdoc/modules/doc-pt_BR /home/vagrant/doc-pt_BR
+cd ~/translation_fest
+svn co https://svn.php.net/repository/phpdoc/modules/doc-pt_BR
+cd doc-pt_BR
 
 echo "*****************************************************************"
 echo "All requirements were installed. You can start your translations!"
