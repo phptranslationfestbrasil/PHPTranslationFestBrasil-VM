@@ -36,6 +36,6 @@ $ vagrant up
 [http://doc.php.net/revcheck.php?dir=1&p=files&lang=pt_BR](http://doc.php.net/revcheck.php?dir=1&p=files&lang=pt_BR)
 
 ## Arquivos ainda não traduzidos para o pt_BR
-[http://doc.php.net/revcheck.php?dir=1&p=files&lang=pt_BR](http://doc.php.net/revcheck.php?dir=1&p=files&lang=pt_BR)
+[http://doc.php.net/revcheck.php?p=missfiles&lang=pt_BR](http://doc.php.net/revcheck.php?p=missfiles&lang=pt_BR)
 
 
